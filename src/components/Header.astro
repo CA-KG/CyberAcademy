@@ -1,0 +1,238 @@
+---
+import MobileMenu from '../components/mobile/MobileMenu';
+// Импорты и логика
+const navItems = [
+  { name: "Каталог Курсов", url: "/courses" },
+  { name: "Наши преподаватели", url: "/teachers" },
+  { name: "О академии", url: "/about" },
+  { name: "FAQ", url: "#faq" },
+];
+
+// Состояние для мобильного меню
+let menuOpen = false;
+const toggleMenu = () => {
+  menuOpen = !menuOpen;
+  document.body.style.overflow = menuOpen ? 'hidden' : '';
+};
+
+// Определение мобильного устройства
+let isMobile = false;
+if (typeof window !== 'undefined') {
+  isMobile = window.innerWidth < 768;
+  window.addEventListener('resize', () => {
+    isMobile = window.innerWidth < 768;
+    if (!isMobile) menuOpen = false;
+  });
+}
+---
+
+<header class="header">
+  <div class="header-content">
+    <a href="/" class="logo">
+      <img 
+        src="/images/logo.svg" 
+        alt="Логотип Академии" 
+        width="150" 
+        height="40" 
+      />
+    </a>
+
+    <nav class="desktop-nav">
+      <ul class="nav-list">
+        {navItems.map((item) => (
+          <li class="nav-item">
+            <a href={item.url} class="nav-link">{item.name}</a>
+          </li>
+        ))}
+        <li class="nav-item">
+          <a href="/apply" class="enroll-button">Записаться</a>
+        </li>
+      </ul>
+    </nav>
+
+    <MobileMenu client:load navItems={navItems} />
+  </div>
+</header>
+
+<style>
+  /* Основные стили шапки */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Главный контейнер */
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 1rem 5%;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  /* Стили логотипа */
+  .logo img {
+    width: 200px;
+    height: auto;
+  }
+
+  /* Десктопная навигация */
+  .desktop-nav {
+    display: block;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+    transition: color 0.3s;
+    padding: 0.5rem 0;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: #043570;
+  }
+
+  /* Стили кнопки "Записаться" */
+  .enroll-button {
+    background: #043570;
+    color: white;
+    font-size: 20px;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+    margin-left: 0.5rem;
+  }
+
+  .enroll-button:hover {
+    background: #043570;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 102, 255, 0.2);
+  }
+
+  /* Мобильное меню */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .burger span {
+    width: 100%;
+    height: 3px;
+    background: #043570;
+    transition: all 0.3s;
+  }
+
+  .burger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+    padding-top: 80px;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+  }
+
+  .mobile-nav-item {
+    margin-bottom: 15px;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 12px 0;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-enroll-button {
+    display: block;
+    background: #043570;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .logo img {
+    width: 100px;
+    height: auto;
+  }
+    .desktop-nav {
+      display: none;
+    }
+  }
+
+  @media (min-width: 769px) {
+   
+    .burger,
+    .mobile-menu {
+      display: none;
+    }
+  }
+</style>

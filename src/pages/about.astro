@@ -1,0 +1,178 @@
+---
+// src/pages/about.astro
+import Layout from "../components/layouts/Layout.astro";
+import FAQ from "../components/FAQ"; // (опционально, если нужен блок вопросов)
+import CourseProgram from "../components/CourseProgram"; // Компонент с программой курса (создадим ниже)
+import Header from "../components/Header.astro";
+---
+
+<Layout title="О нас | КиберАкадемия">
+  <main class="about-page">
+    <section>
+        <Header/>
+    </section>
+    <!-- Блок "О центре" -->
+    <section class="hero">
+      <div class="container">
+        <h1>Учебный центр «КиберАкадемия»</h1>
+        <p class="subtitle">Профессиональная подготовка специалистов по кибербезопасности</p>
+      </div>
+    </section>
+
+    <!-- Блок "О курсе" -->
+    <section class="about-course">
+      <div class="container">
+        <h2>Курс «Специалист по кибербезопасности: профессиональный старт»</h2>
+        <div class="course-highlights">
+          <div class="highlight-card">
+            <h3>162 часа</h3>
+            <p>Практико-ориентированного обучения</p>
+          </div>
+          <div class="highlight-card">
+            <h3>Гибридный формат</h3>
+            <p>Очно + онлайн</p>
+          </div>
+          <div class="highlight-card">
+            <h3>Итоговый проект</h3>
+            <p>Защита перед экспертами</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Программа курса (React-компонент) -->
+    <section class="course-program">
+      <div class="container">
+        <h2>Программа курса</h2>
+        <CourseProgram client:load />
+      </div>
+    </section>
+
+    <!-- Блок "Для кого" -->
+    <section class="for-whom">
+      <div class="container">
+        <h2>Для кого этот курс?</h2>
+        <ul>
+          <li>Студенты технических вузов</li>
+          <li>Начинающие IT-специалисты</li>
+          <li>Все, кто хочет сменить профессию</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="benefits">
+      <div class="container">
+        <h2>Преимущества обучения</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <h3>Практика</h3>
+            <p>Лабораторные работы на реальных кейсах</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Эксперты</h3>
+            <p>Преподаватели из ведущих компаний</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Трудоустройство</h3>
+            <p>Помощь с резюме и собеседованиями</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Глобальные стили страницы */
+  .about-page {
+    padding-top: 100px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .container {
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Секция "Герой" */
+  .hero {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  /* Карточки-хайлайты */
+  .course-highlights {
+    display: flex;
+    gap: 20px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .highlight-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+  }
+
+  .highlight-card h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+  }
+
+  /* Секция "Для кого" */
+  .for-whom {
+    background: #f1f5f9;
+    padding: 60px 0;
+  }
+
+  .for-whom ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .for-whom li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232563eb"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') no-repeat left center;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    background-size: 20px;
+  }
+
+  /* Преимущества */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .benefit-card {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .benefit-card h3 {
+    color: #2563eb;
+  }
+</style>

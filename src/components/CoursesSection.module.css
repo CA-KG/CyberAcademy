@@ -1,0 +1,171 @@
+.coursesSection {
+  background: #043570;
+  padding: 5rem 1rem;
+}
+
+
+
+.title {
+  text-align: center;
+  width: 100%;
+  font-size: 50px;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+.coursesGrid {
+  padding-left: 10rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem 3rem; 
+
+}
+
+.courseCard {
+  position: relative;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  isolation: isolate;
+}
+
+/* Фоновое изображение */
+.courseCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--bg-image); /* ✅ здесь */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  z-index: -2;
+  transition: transform 0.5s ease;
+}
+
+
+/* Затемнение фона */
+.courseCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+  z-index: -1;
+}
+
+/* Элементы карточки (текст и кнопки) */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.courseTitle {
+  font-size: 1.5rem;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.courseDesc {
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detailsButton {
+  width: 100%;
+  padding: 0.8rem;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(2px);
+}
+
+.detailsButton:hover {
+  background: rgba(37, 99, 235, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Анимации и эффекты */
+.courseCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.courseCard:hover::before {
+  transform: scale(1.05);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  
+  .container {
+    max-width: 100%;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .coursesGrid {
+    padding: 0%;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .courseCard {
+    min-height: 300px;
+    padding: 1.5rem;
+  }
+}

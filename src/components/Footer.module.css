@@ -1,0 +1,154 @@
+.footer {
+    background-color: #043570;
+    color: white;
+    padding: 60px 0;
+    font-family: 'Arial', sans-serif;
+  }
+  .logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.logoImage {
+  width: 500px; /* Настройте по размеру вашего лого */
+  height: auto;
+}
+  
+  .container 
+  {
+    padding-left: 200px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  
+  .mainTitle {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .subTitle {
+    font-size: 1.2rem;
+    margin: 30px 0 15px 0;
+    font-weight: 600;
+    color: #043570;
+  }
+  
+  .menuList,
+  .menuList a,  /* Добавляем селектор для ссылок */
+  .addressList,
+  .addressList a,  /* Добавляем селектор для ссылок */
+  .contactList,
+  .contactList a {  /* Добавляем селектор для ссылок */
+    text-decoration: none !important;
+    color: white !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menuList li,
+  .contactList li {
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-size: 1rem;
+  }
+  
+  .menuList li:hover,
+  .contactList li:hover {
+    color: #4dabf7;
+  }
+  
+  .addressList li {
+    margin-bottom: 20px;
+  }
+  
+  .addressList strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+  
+  .addressList p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+  
+  .email {
+    margin: 0 0 25px 0;
+    font-size: 1rem;
+    color: #4dabf7;
+  }
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 24px;
+    font-size: 32px; /* Увеличил размер иконок */
+  }
+  
+  .socialIcons a {
+    color: #ffffff; /* Яркий белый цвет или выбери свой */
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  .socialIcons a:hover {
+    transform: scale(1.2);
+    color: #00acee; /* Можешь задать уникальные цвета для каждой соцсети */
+  }
+  
+  
+  /* Адаптация для мобильных */
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container 
+  {
+    padding-left: 50px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  
+    .logoContainer {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    
+    .logoImage {
+      width: 300px; /* Настройте по размеру вашего лого */
+      height: auto;
+    }
+    .container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .footer {
+      padding: 40px 0;
+    }
+    
+    .mainTitle {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+  }

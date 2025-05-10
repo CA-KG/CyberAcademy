@@ -1,0 +1,230 @@
+---
+// src/pages/apply.astro
+import Layout from '../components/layouts/Layout.astro';
+
+// Список доступных курсов
+const courses = [
+  "Сетевой инженер",
+  "Кибербезопасность",
+  "Администрирование Linux",
+  "Базы данных",
+  "Windows Server",
+  "Компьютерное железо"
+];
+---
+
+<Layout title="Подать заявку | КИБЕРАКАДЕМИЯ">
+  <main class="apply-page">
+    <section class="form-section">
+      <h1>Оставьте заявку</h1>
+      <p>Мы свяжемся с вами в течение рабочего дня</p>
+      
+      <form id="application-form" class="application-form">
+        <!-- Поле ФИО -->
+        <div class="form-group">
+          <label for="fullname">ФИО*</label>
+          <input 
+            type="text" 
+            id="fullname" 
+            name="fullname" 
+            required
+            placeholder="Иванов Иван Иванович"
+          >
+        </div>
+        
+        <!-- Контактные данные -->
+        <div class="form-group">
+          <label for="phone">Телефон*</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            required
+            placeholder="+996 (XXX) XXX-XXX"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="your@email.com"
+          >
+        </div>
+        
+        <!-- Выбор курса -->
+        <div class="form-group">
+          <label for="course">Курс, который вас заинтересовал*</label>
+          <select id="course" name="course" required>
+            <option value="" disabled selected>Выберите курс</option>
+            {courses.map(course => (
+              <option value={course}>{course}</option>
+            ))}
+          </select>
+        </div>
+        
+        <!-- Поле для вопроса -->
+        <div class="form-group">
+          <label for="question">Ваш вопрос или комментарий</label>
+          <textarea 
+            id="question" 
+            name="question" 
+            rows="4"
+            placeholder="Расскажите, что вас интересует..."
+          ></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Отправить заявку</button>
+      </form>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .apply-page {
+    padding: 4rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .form-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .form-section h1 {
+    font-size: 2.5rem;
+    color: #043570;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .form-section p {
+    font-size: 1.2rem;
+    color: #64748b;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .application-form {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    font-weight: 600;
+    color: #334155;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.8rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #043570;
+  }
+  
+  .submit-btn {
+    background: #043570;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1rem;
+  }
+  
+  .submit-btn:hover {
+    background: #0066ff;
+  }
+  
+  @media (max-width: 768px) {
+    .form-section {
+      padding: 0 1rem;
+    }
+    
+    .form-section h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script is:inline>
+document.getElementById('application-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+  
+  try {
+    submitBtn.textContent = 'Отправка...';
+    submitBtn.disabled = true;
+    
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Замените YOUR_BOT_TOKEN и YOUR_CHAT_ID на реальные значения
+    const botToken = '7239512144:AAG-9ngqMBWc0tMGW-3Mq8RD8EJriHB9Ru0';
+    const chatId = '1104480407';
+    
+    const message = 
+`📝 *Новая заявка:*
+👤 *ФИО:* ${data.fullname}
+📞 *Телефон:* ${data.phone}
+✉️ *Email:* ${data.email || 'не указан'}
+🎓 *Курс:* ${data.course}
+❓ *Вопрос:* ${data.question || 'нет вопроса'}`;
+
+    
+    const response = await fetch(
+      `https://api.telegram.org/bot${botToken}/sendMessage`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+  chat_id: chatId,
+  text: message,
+  parse_mode: 'Markdown'  // используем Markdown
+})
+      }
+    );
+    
+    if (response.ok) {
+      alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+      form.reset();
+    } else {
+      throw new Error('Ошибка при отправке');
+    }
+  } catch (error) {
+    console.error('Ошибка:', error);
+    alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+  } finally {
+    submitBtn.textContent = originalBtnText;
+    submitBtn.disabled = false;
+  }
+});
+</script>

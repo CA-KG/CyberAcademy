@@ -1,0 +1,45 @@
+/* src/components/CourseProgram.module.css */
+.program {
+    margin: 40px 0;
+  }
+  
+  .module {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  
+  .moduleHeader {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    background: #f8fafc;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+  }
+  
+  .moduleHeader:hover {
+    background: #edf2f7;
+  }
+  
+  .moduleContent {
+    padding: 20px;
+    background: white;
+  }
+  
+  .moduleContent ul {
+    padding-left: 20px;
+  }
+  
+  .moduleContent li {
+    margin-bottom: 8px;
+  }
+  
+  .arrow {
+    font-size: 1.2rem;
+  }

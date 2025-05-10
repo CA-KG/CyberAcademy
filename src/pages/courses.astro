@@ -1,0 +1,181 @@
+---
+// src/pages/courses.astro
+import Layout from "../components/layouts/Layout.astro";
+import CourseCard from "../components/CourseCard.astro";
+---
+
+<Layout title="Курсы | КиберАкадемия">
+  <main class="courses-page">
+    <!-- Герой-секция -->
+    <section class="hero">
+      <div class="container">
+        <h1>Профессиональные IT-курсы</h1>
+        <p class="subtitle">Практико-ориентированное обучение с трудоустройством</p>
+      </div>
+    </section>
+
+    <!-- Основной контент -->
+    <section class="courses-section">
+      <div class="container">
+        <!-- Курс 1 -->
+        <CourseCard 
+          title="Сетевой инженер" 
+          startDate="15 октября 2023"
+          duration="3 месяца (144 часа)"
+          format="Очно / Онлайн"
+          price="24 900 ₽"
+          badge="Хит продаж"
+          image="/images/courses/imgNet.jpeg"
+        >
+          <ul class="course-features">
+            <li>Настройка Cisco и MikroTik оборудования</li>
+            <li>VPN, Firewall, IDS/IPS системы</li>
+            <li>Анализ трафика через Wireshark</li>
+            <li>Дипломный проект: защита корпоративной сети</li>
+          </ul>
+        </CourseCard>
+
+        <!-- Курс 2 -->
+        <CourseCard 
+          title="Администрирование Linux" 
+          startDate="20 октября 2023"
+          duration="2.5 месяца (120 часов)"
+          format="Очно / Онлайн"
+          price="21 900 ₽"
+          image="/images/courses/imglinux.jpeg"
+        >
+          <ul class="course-features">
+            <li>Работа с терминалом и bash-скриптами</li>
+            <li>Настройка серверов (Apache, Nginx, SSH)</li>
+            <li>Система мониторинга Zabbix</li>
+            <li>Подготовка к сертификации RHCSA</li>
+          </ul>
+        </CourseCard>
+
+       <CourseCard 
+  title="Базы данных" 
+  startDate="25 октября 2023"
+  duration="2 месяца (96 часов)"
+  format="Очно / Онлайн"
+  price="18 900 ₽"
+  image="/images/courses/imgSql.jpeg"
+>
+  <ul class="course-features">
+    <li>Проектирование баз данных (MySQL, PostgreSQL)</li>
+    <li>Оптимизация запросов и индексов</li>
+    <li>Защита от SQL-инъекций</li>
+    <li>Репликация и кластеризация</li>
+  </ul>
+</CourseCard>
+
+<CourseCard 
+  title="Windows Server" 
+  startDate="5 ноября 2023"
+  duration="3 месяца (108 часов)"
+  format="Очно / Онлайн"
+  price="22 500 ₽"
+  badge="Новый"
+  image="/images/courses/imgWin.jpeg"
+>
+<ul class="course-features">
+  <li>Active Directory и групповые политики</li>
+  <li>Виртуализация на Hyper-V</li>
+  <li>Развёртывание серверных решений</li>
+  <li>Безопасность Windows-серверов</li>
+</ul>
+</CourseCard>
+
+<CourseCard 
+  title="Компьютерное железо" 
+  startDate="10 ноября 2023"
+  duration="1.5 месяца (72 часа)"
+  format="Только очно"
+  price="15 900 ₽"
+  image="/images/courses/imgPc.jpeg"
+>
+  <ul class="course-features">
+    <li>Ремонт и апгрейд ПК/серверов</li>
+    <li>Диагностика неисправностей</li>
+    <li>Основы пайки и работы с BGA</li>
+    <li>Практика в сервисном центре</li>
+  </ul>
+</CourseCard>
+
+        <!-- Остальные курсы в том же формате -->
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Общие стили */
+  .courses-page {
+    color: #1e293b;
+    background: #f8fafc;
+    padding-bottom: 60px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #043570, #1e40af);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    font-weight: 300;
+  }
+
+  /* Секция курсов */
+  .courses-section {
+    margin-top: 40px;
+  }
+
+  .course-features {
+    padding-left: 20px;
+    margin: 20px 0;
+  }
+
+  .course-features li {
+    margin-bottom: 12px;
+    position: relative;
+    list-style-type: none;
+  }
+
+  .course-features li::before {
+    content: "•";
+    color: #043570;
+    font-size: 1.5rem;
+    position: absolute;
+    left: -20px;
+    top: -3px;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 70px 0;
+    }
+    
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+</style>

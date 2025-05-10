@@ -1,0 +1,143 @@
+.teachersSection {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  color: #043570;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 3rem;
+}
+
+.teachersContainer {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  overflow-x: auto;
+  scrollbar-width: none; /* Скрываем скроллбар в Firefox */
+  -ms-overflow-style: none; /* Скрываем скроллбар в IE/Edge */
+}
+
+.teachersContainer::-webkit-scrollbar {
+  display: none; /* Скрываем скроллбар в Chrome/Safari */
+}
+
+.teachersScrollWrapper {
+  display: inline-flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  will-change: transform;
+}
+
+.teacherCard {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.teacherCard:hover {
+  transform: translateY(-5px);
+}
+
+.teacherImageContainer {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 3px solid #043570;
+}
+
+.teacherImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teacherInfo {
+  text-align: center;
+}
+
+.teacherName {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.teacherSpecialty {
+  font-size: 1rem;
+  color: #043570;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.teacherExperience {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Добавьте эти стили в ваш файл styles.module.css */
+
+.teachersFooter {
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.teachersDescription {
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.moreButton {
+  background-color: #043570;
+  color: white;
+  border: none;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.moreButton:hover {
+  background-color: #022a5a;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+  .teacherCard {
+    flex: 0 0 220px;
+  }
+  
+  .teacherImageContainer {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .teacherName {
+    font-size: 1.1rem;
+  }
+  
+  .teacherSpecialty {
+    font-size: 0.9rem;
+  }
+}
