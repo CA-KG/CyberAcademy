@@ -1,49 +1,47 @@
 import styles from './CoursesSection.module.css';
+import { useTranslation } from 'react-i18next';
+import '../i18n/client.ts';
+
 
 
 interface Course {
   title: string;
   description: string;
   duration: string;
-  level: string;
   bgImage: string;
 }
 
 const CoursesSection = () => {
+  const {t} = useTranslation();
   const courses: Course[] = [
     {
-      title: "Сетевой инженер",
-      description: "Полный курс по проектированию и настройке сетей",
-      duration: "3 месяца",
-      level: "Начальный → Профессионал",
+      title: t("courseSection.cyberSec.title"),
+      description: t("courseSection.cyberSec.desc"),
+      duration: t("courseSection.cyberSec.dur"),
+      bgImage: "/images/courses/imgCyberSec.png"
+    },
+    {
+      title:  t("courseSection.sysAdmin.title"),
+      description: t("courseSection.sysAdmin.desc"),
+      duration: t("courseSection.sysAdmin.dur"),
+      bgImage: "/images/courses/imgSysAdm.png"
+    },
+    {
+      title: t("courseSection.netEng.title"),
+      description: t("courseSection.netEng.desc"),
+      duration: t("courseSection.netEng.dur"),
       bgImage: "/images/courses/imgNet.jpeg"
     },
     {
-      title: "Администрирование Linux",
-      description: "Освоение серверных технологий на Linux",
-      duration: "2.5 месяца",
-      level: "Средний → Продвинутый",
-      bgImage: "/images/courses/imglinux.jpeg"
+      title: t("courseSection.upKnIC.title"),
+      description: t("courseSection.upKnIC.desc"),
+      duration: t("courseSection.upKnIC.dur"),
+      bgImage: "/images/courses/imgNetEng.png"
     },
     {
-      title: "Базы данных",
-      description: "SQL, NoSQL и оптимизация запросов",
-      duration: "2 месяца",
-      level: "Начальный → Средний",
-      bgImage: "/images/courses/imgSql.jpeg"
-    },
-    {
-      title: "Windows Server",
-      description: "Развертывание и управление серверами Windows",
-      duration: "2 месяца",
-      level: "Начальный → Средний",
-      bgImage: "/images/courses/imgWin.jpeg"
-    },
-    {
-      title: "Компьютерное железо",
-      description: "Архитектура ПК и серверного оборудования",
-      duration: "1.5 месяца",
-      level: "Начальный",
+      title: t("courseSection.upKnPC.title"),
+      description: t("courseSection.upKnPC.desc"),
+      duration: t("courseSection.upKnPC.dur"),
       bgImage: "/images/courses/imgPc.jpeg"
     }
   ];
@@ -51,8 +49,8 @@ const CoursesSection = () => {
   return (
     <section className={styles.coursesSection}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Наши курсы</h2>
-        <p className={styles.subtitle}>Профессиональная подготовка IT-специалистов</p>
+        <h2 className={styles.title}>{t('courseSection.title')}</h2>
+        <p className={styles.subtitle}>{t('courseSection.desc')}</p>
         
         <div className={styles.coursesGrid}>
           {courses.map((course, index) => (
@@ -72,14 +70,11 @@ const CoursesSection = () => {
                   <span className={styles.metaIcon}>⏱️</span> 
                   {course.duration}
                 </span>
-                <span className={styles.level}>
-                  <span className={styles.metaIcon}>📊</span>
-                  {course.level}
-                </span>
+               
               </div>
               <button className={styles.detailsButton}  
               onClick={()=>window.location.href = "/courses"}>
-                Подробнее о курсе
+                {t('courseSection.more')}
               </button>
             </div>
           ))}

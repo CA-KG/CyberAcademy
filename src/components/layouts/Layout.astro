@@ -1,35 +1,34 @@
 ---
-// src/layouts/Layout.astro
 import Header from "../Header.astro";
 import Footer from "../Footer";
+import Preloader from "../Preloader";
 const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <Header/>
-  <main class="mainContent">
-    <body>
-      <slot /> <!-- Сюда подставляется контент страницы -->
-    </body>
-    <Footer/>
-  </main>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8fafc;
-    }
-    .mainContent {
-  padding-top: 100px;
-}
-  </style>
-</head>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8fafc;
+      }
+      .mainContent {
+        padding-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <Preloader client:only="react" />
+    <main class="mainContent">
+      <slot />
+    </main>
+    <Footer client:only="react" />
+  </body>
 </html>

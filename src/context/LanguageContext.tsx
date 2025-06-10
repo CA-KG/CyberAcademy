@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import type { Locale } from '../i18n/translations.ts';
+type Locale = 'ru' | 'kg';
 
 type LanguageContextType = {
   locale: Locale;

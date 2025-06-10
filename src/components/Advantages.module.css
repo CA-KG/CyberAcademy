@@ -11,8 +11,7 @@
 }
 
 .columnsContainer {
-  padding-left: 300px;
-  padding-right: 300px;
+  padding-left: 150px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
@@ -28,13 +27,14 @@
   margin-bottom: 20px;
   color: #043570;
   padding-bottom: 10px;
+  font-weight: 700;
   border-bottom: 2px solid #043570;
 }
 
 .list {
-  font-weight: normal;
+  font-weight: 500;
   font-size: 24px;
-  color: black;
+  color: rgb(15, 15, 15);
   list-style: none;
   padding: 0;
   margin: 0;
@@ -66,8 +66,10 @@
   }
 
   .title {
-    font-size: 1.7rem;
-    margin-bottom: 30px;
+    padding-left: 1rem;
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 10px;
   }
 
   .columnTitle {

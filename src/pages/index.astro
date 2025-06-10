@@ -6,17 +6,16 @@ import CoursesSection from '../components/CoursesSection';
 import AboutCource from '../components/AboutCource';
 import Footer from '../components/Footer';
 import TeacherSection from '../components/TeacherSection'
-import AboutUs from '../components/AboutUs.astro';
+import AboutUs from '../components/AboutUs'
 import FAQ from '../components/FAQ';
+import Preloader from '../components/Preloader';
 
 ---
 
 <html lang="ru">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-  <head>  
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
-    <title>Академия</title>
+    <title>КиберАкадемия</title>
     <style>
     body {
 
@@ -41,8 +40,6 @@ html {
         height: 500px;
         overflow: hidden;
       }
-
-     
 
       /* Стили для преимуществ (добавьте эти новые стили) */
       .advantages-section {
@@ -99,37 +96,36 @@ html {
   </head>
 
   <body>
+<Preloader client:load/>
+
     <Header />
-    <!-- Секция слайдера (только слайдер) -->
+  
   
     <section >
-      <AboutCource client:load/>
+      <AboutCource client:only="react"/>
     </section>
     <section id="about-us">
-      <AboutUs/>
+      <AboutUs client:only="react" />
     </section>
     <section>
-      <TeacherSection client:load/>
+      <TeacherSection client:only="react"/>
     </section>
 
-    <!-- <section class="slider-section">     
-      <Slider client:load />
-    </section> -->
     
     <section class="advantages-section" id="advantages">
-      <Advantages client:load />
+      <Advantages client:only="react" />
     </section>
     
     <section id="our-cource">
-      <CoursesSection client:load/>
+      <CoursesSection client:only="react"/>
     </section>
     
     <section id="faq">
-      <FAQ client:load/>
+      <FAQ client:only="react"/>
     </section>
 
     <section>
-      <Footer client:load/>
+      <Footer client:only="react"/>
     </section>
 
   </body>

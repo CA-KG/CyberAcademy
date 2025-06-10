@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './MobileMenu.css'; // Создайте этот файл для стилей
+import ClientText from '../ClientText';
+import LanguageDropdown from '../LanguageSwitcher';
 
 export default function MobileMenu({ navItems }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,6 +33,7 @@ export default function MobileMenu({ navItems }) {
 
   return (
     <>
+     <LanguageDropdown />
       <button 
         className={`burger ${menuOpen ? 'open' : ''}`}
         onClick={toggleMenu}
@@ -44,26 +47,18 @@ export default function MobileMenu({ navItems }) {
       <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
         <nav className="mobile-nav">
           <ul className="mobile-nav-list">
-            {navItems.map((item) => (
-              <li key={item.url} className="mobile-nav-item">
-                <a 
-                  href={item.url} 
-                  className="mobile-nav-link"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
-            <li className="mobile-nav-item">
-              <a 
-                href="/apply" 
-                className="mobile-enroll-button"
-                onClick={() => setMenuOpen(false)}
-              >
-                Записаться
-              </a>
-            </li>
+          {navItems.map((item) => (
+  <li key={item.url} className="mobile-nav-item">
+    <a 
+      href={item.url} 
+      className="mobile-nav-link"
+      onClick={() => setMenuOpen(false)}
+    >
+      <ClientText client:load textKey={item.nameKey} />
+    </a>
+  </li>
+))}
+            
           </ul>
         </nav>
       </div>

@@ -1,0 +1,89 @@
+.languageSwitcher {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-primary);
+  }
+  
+  .currentLanguage {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+
+    color: #333333b6;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  
+  .currentLanguage:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .flag {
+    width: 20px;
+    height: 15px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+  
+  .label {
+    white-space: nowrap;
+  }
+  
+  .arrow {
+    margin-left: 4px;
+    transition: transform 0.2s;
+  }
+  
+  .open .arrow {
+    transform: rotate(180deg);
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 160px;
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  
+  .open .dropdown {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .languageOption {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333333b6;
+    transition: background-color 0.2s;
+  }
+  
+  .languageOption:hover {
+    background-color: #f8f8f8;
+  }
+  
+  .languageOption .flag {
+    width: 18px;
+    height: 14px;
+  }

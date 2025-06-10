@@ -1,0 +1,145 @@
+:root {
+  --primary: #1e40af;
+  --primary-light: #93c5fd;
+  --secondary: #10b981;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --gray: #64748b;
+  --danger: #ef4444;
+}
+
+/* Ценности */
+.valuesSection {
+  text-align: left;
+  width: 100%;
+  padding: 100px 0;
+}
+
+.valuesSection h2 {
+  text-align: left;
+  font-size: 70px;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.sectionIntro {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.valueCard {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.valueCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.valueIcon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.valueIcon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.valueCard h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+/* ------------------------ */
+/* Адаптивность */
+/* ------------------------ */
+@media (max-width: 1024px) {
+  .valuesSection {
+    padding: 80px 20px;
+  }
+
+  .valuesSection h2 {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .sectionIntro {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .valuesSection {
+    padding: 60px 15px;
+  }
+
+  .valuesSection h2 {
+    font-size: 36px;
+  }
+
+  .sectionIntro {
+    font-size: 18px;
+  }
+
+  .valueCard {
+    padding: 30px 20px;
+  }
+
+  .valueCard h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .valuesSection h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .sectionIntro {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .valueIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .valueIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .valueCard {
+    padding: 25px 15px;
+  }
+
+  .valueCard h3 {
+    font-size: 1.1rem;
+  }
+}

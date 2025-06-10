@@ -1,0 +1,274 @@
+:root {
+  --primary: #1e40af;
+  --primary-light: #93c5fd;
+  --secondary: #10b981;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --gray: #64748b;
+  --danger: #ef4444;
+}
+
+/* Команда */
+.teamSection {
+    width: 100%;
+    background: var(--light);
+  }
+  .valuesSection  {
+    text-align: left;
+    font-size: 70px;
+    color: var(--primary);
+  }
+  .teachers-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .sectionIntro{
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .teacher-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    flex: 1 1 calc(33.333% - 20px); /* 3 колонки с учетом gap */
+    min-width: 300px; /* Минимальная ширина карточки */
+  }
+  
+  .teacher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .teacher-image {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .teacher-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .teacher-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 64, 175, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .teacher-card:hover .teacher-hover {
+    opacity: 1;
+  }
+  
+  .view-profile {
+    padding: 10px 20px;
+    background: white;
+    color: var(--primary);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .view-profile:hover {
+    background: var(--primary-light);
+    color: white;
+  }
+  
+  .teacher-info {
+    padding: 25px;
+  }
+  
+  .teacher-info h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .specialty {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 5px;
+  }
+  
+  .experience {
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+  
+  /* Модальное окно преподавателя */
+  .teacher-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .teacher-modal.active {
+    display: flex;
+    opacity: 1;
+  }
+  
+  .modal-content {
+    background: white;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 30px;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray);
+    transition: color 0.3s ease;
+  }
+  
+  .close-modal:hover {
+    color: var(--dark);
+  }
+  
+  .modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+  }
+  
+  .modal-image img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .modal-info h3 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+  
+  .modal-specialty {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  
+  .modal-experience {
+    color: var(--gray);
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  
+  .modal-bio {
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+  
+  .modal-social {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .modal-social a {
+    color: var(--gray);
+    transition: color 0.3s ease;
+  }
+  
+  .modal-social a:hover {
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .valuesSection {
+      font-size: 36px; 
+      text-align: center;
+    }
+  
+    .sectionIntro {
+      font-size: 18px;
+      text-align: center;
+    }
+  
+    .teachers-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+  
+    .teacher-card {
+      min-width: auto;
+      flex: 1 1 100%;
+    }
+  
+    .teacher-image {
+      height: 200px;
+    }
+  
+    .teacher-info h3 {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  
+    .specialty, .experience {
+      text-align: center;
+    }
+  
+    .view-profile {
+      display: block;
+      margin: 0 auto;
+    }
+  
+    /* Модалка */
+    .modal-content {
+      padding: 20px;
+      width: 95%;
+      max-height: 95vh;
+    }
+  
+    .modal-grid {
+      grid-template-columns: 1fr; /* В одну колонку */
+      gap: 20px;
+    }
+  
+    .modal-info h3 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  
+    .modal-specialty, .modal-experience, .modal-bio {
+      text-align: center;
+    }
+  
+    .modal-social {
+      justify-content: center;
+    }
+  }
+  

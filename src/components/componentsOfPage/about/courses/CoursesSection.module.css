@@ -1,0 +1,133 @@
+:root {
+    --primary: #1e40af;
+    --primary-light: #93c5fd;
+    --secondary: #10b981;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --danger: #ef4444;
+  }
+
+  .valuesSection  {
+
+    text-align: left;
+    font-size: 70px;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  .sectionIntro{
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .coursesSection {
+    padding: 100px 0;
+    background: white;
+  }
+  
+  .coursesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+  .courseCard {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .courseCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .courseHeader {
+    padding: 25px;
+    background: var(--primary);
+    color: white;
+  }
+  
+  .courseHeader h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .courseMeta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .courseFeatures {
+    padding: 25px;
+  }
+  
+  .courseFeatures li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+  }
+  
+  .courseFeatures li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+  }
+  
+  .courseButton {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .courseButton:hover {
+    background: var(--primary);
+    color: white;
+  }
+  @media (max-width: 768px) {
+  .valuesSection {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .sectionIntro {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .coursesSection {
+    padding: 60px 20px;
+  }
+
+  .courseHeader h3 {
+    font-size: 1.2rem;
+  }
+
+  .courseFeatures {
+    padding: 20px;
+  }
+
+  .courseFeatures li {
+    font-size: 0.95rem;
+  }
+
+  .courseButton {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}

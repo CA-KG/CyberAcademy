@@ -1,5 +1,5 @@
 .coursesSection {
-  background: #043570;
+  background: linear-gradient(5deg, #1e3a8a 0%, #2563eb 100%);
   padding: 5rem 1rem;
 }
 
@@ -8,23 +8,25 @@
 .title {
   text-align: center;
   width: 100%;
-  font-size: 50px;
+  font-size: 70px;
   color: #fff;
   margin-bottom: 1rem;
 }
 
 .subtitle {
+  font-weight: 500;
   text-align: center;
-  color: #94a3b8;
+  color: #c6c6c6;
   font-size: 1.2rem;
   margin-bottom: 3rem;
 }
 
 .coursesGrid {
+  width: auto;
   padding-left: 10rem;
-  width: 100%;
+  padding-right: 10rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem 3rem; 
 
 }
@@ -58,6 +60,7 @@
   opacity: 0.9;
   z-index: -2;
   transition: transform 0.5s ease;
+
 }
 
 
@@ -82,7 +85,7 @@
 }
 
 .icon {
-  font-size: 2rem;
+  font-size: 10rem;
   color: white;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
@@ -97,6 +100,8 @@
 .courseDesc {
   color: rgba(255,255,255,0.9);
   line-height: 1.6;
+  font-size: 18px;
+  font-weight: 700;
   margin-bottom: 1.5rem;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
@@ -130,7 +135,8 @@
 }
 
 .detailsButton:hover {
-  background: rgba(37, 99, 235, 0.9);
+  background: white;
+  color: black;
   transform: translateY(-2px);
 }
 
@@ -151,11 +157,13 @@
     max-width: 100%;
   }
   .title {
-    font-size: 2rem;
+    font-size: 40px;
+    text-align: left;
   }
   
   .subtitle {
-    font-size: 1rem;
+    text-align: left;
+    font-size: 24px;
   }
   
   .coursesGrid {

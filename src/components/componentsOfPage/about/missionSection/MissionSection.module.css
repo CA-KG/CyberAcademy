@@ -1,0 +1,75 @@
+/* Миссия */
+.missionSection {
+    padding: 100px 0;
+    background-color: white;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .missionGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  .missionContent h2 {
+    font-size: 70px;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .missionList {
+    margin-top: 30px;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .missionList li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .missionList li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-light);
+    border-radius: 50%;
+  }
+  
+  .missionImage {
+    position: relative;
+  }
+  
+  .missionImage img {
+    border-radius: 10px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .missionGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .missionContent h2 {
+      font-size: 50px;
+    }
+    
+    .missionList li {
+      font-size: 18px;
+    }
+  }

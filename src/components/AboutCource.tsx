@@ -1,18 +1,33 @@
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './AboutCource.module.css';
+import '../i18n/client.ts';
+
 
 const AboutCourse = () => {
+  const { t } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   const advantages = [
     {
-      title: "ЗНАНИЕ С ГАРАНТИЕЙ!",
-      msg: "ИЗУЧАЙТЕ КИБЕРБЕЗОПАСНОСТЬ У НАС\nСТАНЬТЕ ЭКСПЕРТОМ В СВОЕЙ ОБЛАСТИ",
-      image: "/images/img.png", // ← обязательно укажи путь к картинке
+      title: t('course.title'),
+      msg: t('course.msg'),
+      image: "/images/img.png",
       buttons: [
         {
-          text: "ЗАПИСАТЬСЯ НА КУРС",
+          text: t('course.apply'),
           onClick: () => (window.location.href = "/apply"),
         },
         {
-          text: "ВСЕ КУРСЫ",
+          text: t('course.all'),
           onClick: () => {
             const section = document.getElementById("our-cource");
             if (section) {
@@ -44,7 +59,6 @@ const AboutCourse = () => {
               ))}
             </div>
           </div>
-
           <div className={styles.imageBlock}>
             <img
               src={advantage.image}

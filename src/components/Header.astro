@@ -1,21 +1,24 @@
 ---
+import { I18nextProvider } from 'react-i18next';
 import MobileMenu from '../components/mobile/MobileMenu';
-// Импорты и логика
+import LanguageSwitcher from './LanguageSwitcher';
+import ClientText from './ClientText';
+import { initServerI18n } from '../i18n/initServerI18n';
+
+
+const langHeader = Astro.request.headers.get('accept-language') || '';
+const detectedLang = langHeader.split(',')[0].split('-')[0] || 'ru'; // базовое определение языка
+
+const i18n = await initServerI18n(detectedLang);
 const navItems = [
-  { name: "Каталог Курсов", url: "/courses" },
-  { name: "Наши преподаватели", url: "/teachers" },
-  { name: "О академии", url: "/about" },
-  { name: "FAQ", url: "#faq" },
+  { nameKey: "header.courses", url: "/courses" },
+  { nameKey: "header.teachers", url: "/teachers" },
+  { nameKey: "header.about", url: "/about" },
 ];
 
-// Состояние для мобильного меню
 let menuOpen = false;
-const toggleMenu = () => {
-  menuOpen = !menuOpen;
-  document.body.style.overflow = menuOpen ? 'hidden' : '';
-};
 
-// Определение мобильного устройства
+
 let isMobile = false;
 if (typeof window !== 'undefined') {
   isMobile = window.innerWidth < 768;
@@ -24,36 +27,42 @@ if (typeof window !== 'undefined') {
     if (!isMobile) menuOpen = false;
   });
 }
+
 ---
 
 <header class="header">
-  <div class="header-content">
-    <a href="/" class="logo">
-      <img 
-        src="/images/logo.svg" 
-        alt="Логотип Академии" 
-        width="150" 
-        height="40" 
-      />
-    </a>
+  <I18nextProvider i18n={i18n}>
+    <div class="header-content">
+      <a href="/" class="logo">
+        <img src="/images/logo.svg" alt="Логотип Академии" width="150" height="40" />
+      </a>
 
-    <nav class="desktop-nav">
-      <ul class="nav-list">
-        {navItems.map((item) => (
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          {navItems.map((item) => (
+            <li class="nav-item">
+              <a href={item.url} class="nav-link">
+                <ClientText  client:load textKey={item.nameKey} />
+              </a>
+            </li>
+          ))}
+          
           <li class="nav-item">
-            <a href={item.url} class="nav-link">{item.name}</a>
+            <LanguageSwitcher client:only="react" />
           </li>
-        ))}
-        <li class="nav-item">
-          <a href="/apply" class="enroll-button">Записаться</a>
-        </li>
-      </ul>
-    </nav>
+          
+          <li class="nav-item">
+            <a href="/apply" class="enroll-button">
+              <ClientText client:load textKey="header.apply" />
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-    <MobileMenu client:load navItems={navItems} />
-  </div>
+      <MobileMenu client:load navItems={[...navItems, { nameKey: "header.apply", url: "/apply" }]} />
+    </div>
+  </I18nextProvider>
 </header>
-
 <style>
   /* Основные стили шапки */
   .header {
@@ -64,6 +73,47 @@ if (typeof window !== 'undefined') {
     z-index: 1000;
     background: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+    /* Добавляем стили для интеграции LanguageSwitcher */
+    .nav-item .language-switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .nav-item .language-button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    padding: 0 5px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  .nav-item .language-button:hover {
+    opacity: 1;
+  }
+  
+  .nav-item .language-button.active {
+    opacity: 1;
+    font-weight: bold;
+  }
+  .nav-item .language-switcher {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item .currentLanguage {
+    color: var(--nav-link-color);
+    font-weight: var(--nav-link-weight);
+  }
+  
+  .nav-item .dropdown {
+    margin-top: 8px;
   }
 
   /* Главный контейнер */
@@ -101,16 +151,18 @@ if (typeof window !== 'undefined') {
 
   .nav-link {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    color: #333333b6;
+    font-variation-settings: "wght" 400;
     font-size: 20px;
     transition: color 0.3s;
+    font-weight: bold;
     padding: 0.5rem 0;
     display: block;
     white-space: nowrap;
   }
 
   .nav-link:hover {
+    font-variation-settings: "wght" 700;
     color: #043570;
   }
 
@@ -198,7 +250,8 @@ if (typeof window !== 'undefined') {
   .mobile-nav-link {
     display: block;
     padding: 12px 0;
-    color: #333;
+    color: #333 !important;
+    opacity: 1 !important;
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;

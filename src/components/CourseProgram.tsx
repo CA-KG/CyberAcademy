@@ -1,4 +1,3 @@
-// src/components/CourseProgram.tsx
 import { useState } from "react";
 import styles from "./CourseProgram.module.css";
 
@@ -25,7 +24,6 @@ export default function CourseProgram() {
         "Ключевые принципы защиты информации (2 часа)",
       ],
     },
-    // Добавьте остальные модули из документа
     {
       id: 2,
       title: "Сети: архитектура, протоколы, настройка",

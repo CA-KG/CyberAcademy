@@ -1,0 +1,95 @@
+/* Достижения */
+:root {
+    --primary: #1e40af;
+    --primary-light: #93c5fd;
+    --secondary: #10b981;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --danger: #ef4444;
+  }
+
+.achievementsSection {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+    color: white;
+    text-align: center;
+  }
+  
+  .achievementTitle  {
+    font-size: 70px;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  .sectionIntro{
+    text-align: left;
+    font-size: 24px;
+  }
+  
+  .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+  .statItem {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+  }
+  
+  .statItem:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .statNumber {
+    font-size: 3.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--primary-light);
+  }
+  
+  .statTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .statDescription {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .achievementTitle  {
+      font-size: 35px;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .achievementsSection {
+      padding: 60px 20px;
+    }
+  
+    .statItem {
+      padding: 30px 15px;
+    }
+  
+    .statNumber {
+      font-size: 2.5rem;
+    }
+  
+    .statTitle {
+      font-size: 1rem;
+    }
+  
+    .statDescription {
+      font-size: 0.85rem;
+    }
+  }
+  
