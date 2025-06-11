@@ -48,7 +48,7 @@ const Footer = () => {
         <div className={styles.column}>
           <h2 className={styles.mainTitle}>{t('footer.contacts')}</h2>
           <ul className={styles.contactList}>
-            <li>+996 (220) 069 460</li>
+            <li>+996 (504) 950 750</li>
           </ul>
 
           <p className={styles.email}>cyberacademy793@gmail.com</p>
@@ -57,10 +57,10 @@ const Footer = () => {
         
       </div>
       <div className={styles.socialIcons}>
-  <a href="https://t.me/your_channel" target="_blank" rel="noopener noreferrer">
+  <a href="https://t.me/usonchik513" target="_blank" rel="noopener noreferrer">
     <FaTelegramPlane />
   </a>
-  <a href="https://wa.me/996501617666" target="_blank" rel="noopener noreferrer">
+  <a href="https://wa.me/501617666" target="_blank" rel="noopener noreferrer">
     <FaWhatsapp />
   </a>
   <a href="https://instagram.com/cyberacademy_kg" target="_blank" rel="noopener noreferrer">
