@@ -26,11 +26,11 @@ const Footer = () => {
         <div className={styles.column}>
           <h2 className={styles.mainTitle}>{t('footer.courses')}</h2>
           <ul className={styles.menuList}>
-            <li><a href='/courses'>Сетевой Инженер</a></li>
+            <li><a href='/courses'>СЕТЕВОЙ ИНЖЕНЕР</a></li>
             <li><a href='/courses'>КИБЕРБЕЗОПАСНОСТЬ</a></li>
             <li><a href='/courses'>СИСТЕМНЫЙ АДМИНИСТРАТОР</a></li>
-            <li><a href='/courses'>Повышение квалификации</a></li>
-            <li><a href='/courses'>Компьютерное железо</a></li>
+            <li><a href='/courses'>ПОВЫШЕНИЕ КВАЛИФИКАЦИИ</a></li>
+            <li><a href='/courses'>КОМПЮТЕРНОЕ ЖЕЛЕЗО</a></li>
           </ul>
         </div>
 

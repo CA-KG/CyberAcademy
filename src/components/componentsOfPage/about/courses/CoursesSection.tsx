@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import "../../../../i18n/client";
 import styles from './CoursesSection.module.css';
 
-// Тип для данных курса
 interface Course {
   key: 'cybersecurity' | 'network' | 'admin';
 }
@@ -48,7 +47,7 @@ const CoursesSection: React.FC = () => {
                                 </ul>
                                 <a href="/courses" className={styles.courseButton}>
                                     {t(`coursSection.courses.${course.key}.more`, 
-                                      { defaultValue: "Курс тууралуу көбүрөөк" })}
+                                      { defaultValue: "Курс тууралуу маалымат" })}
                                 </a>
                             </div>
                         );

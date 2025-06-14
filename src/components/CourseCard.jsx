@@ -1,4 +1,7 @@
 import React from 'react';
+import "../i18n/client"
+import { useTranslation } from "react-i18next";
+
 
 const CourseCard = ({
   title,
@@ -10,6 +13,8 @@ const CourseCard = ({
   image,
   children
 }) => {
+
+  const {t} = useTranslation();
 
   return (
     <div className="course-card">
@@ -51,7 +56,7 @@ const CourseCard = ({
             </div>
             <div className="price">{price}</div>
           </div>
-          <a href="/apply" className="enroll-btn"> Записаться
+          <a href="/apply" className="enroll-btn"> {t("courses.apply")}
             <svg width="20" height="20" viewBox="0 0 24 24">
               <path fill="currentColor" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11H4Z"/>
             </svg>

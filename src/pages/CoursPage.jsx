@@ -3,7 +3,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import "../i18n/client"
 import CourseCard from "../components/CourseCard"; 
-import ru from "../i18n/ru.json";
 
 const CoursesPage = () => {
   const { t } = useTranslation();
@@ -23,7 +22,7 @@ const CoursesPage = () => {
             title={t("courses.networkEngineer.title")}
             duration={t("courses.networkEngineer.duration")}
             format="Очно"
-            price="12'000 сом"
+            price={t("courses.price")}
             image="/images/courses/imgNet.jpeg"
           >
             <ul className="course-features">
@@ -38,7 +37,7 @@ const CoursesPage = () => {
             title={t("courses.cybersecurity.title")}
             duration={t("courses.networkEngineer.duration")}
             format="Очно"
-            price="12'000 сом"
+            price={t("courses.price")}
             image="/images/courses/imgCyberSec.png"
           >
             <ul className="course-features">
@@ -51,7 +50,7 @@ const CoursesPage = () => {
             title={t("courses.sysadmin.title")}
             duration={t("courses.sysadmin.duration")}
             format="Очно"
-            price="12'000 сом"
+            price={t("courses.price")}
             image="/images/courses/imgSysAdm.png"
           >
             <ul className="course-features">
@@ -64,7 +63,7 @@ const CoursesPage = () => {
             title={t("courses.pcUp.title")}
             duration={t("courses.pcUp.duration")}
             format="Очно"
-            price="Договорная"
+            price={t("courses.price2")}
             image="/images/courses/imgWin.jpeg"
           >
             <ul className="course-features">
@@ -78,7 +77,7 @@ const CoursesPage = () => {
             title={t("courses.pcIron.title")}
             duration={t("courses.pcIron.duration")}
             format="Очно"
-            price="12'000 сом"
+            price={t("courses.price")}
             image="/images/courses/imgPc.jpeg"
           >
             <ul className="course-features">
