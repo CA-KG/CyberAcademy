@@ -35,7 +35,7 @@ const CoursesPage = () => {
 
           <CourseCard
             title={t("courses.cybersecurity.title")}
-            duration={t("courses.networkEngineer.duration")}
+            duration={t("courses.cybersecurity.duration")}
             format="Очно"
             price={t("courses.price")}
             image="/images/courses/imgCyberSec.png"
@@ -43,6 +43,7 @@ const CoursesPage = () => {
             <ul className="course-features">
               <li>{t("courses.cybersecurity.feature1")}</li>
               <li>{t("courses.cybersecurity.feature2")}</li>
+              <li>{t("courses.cybersecurity.feature3")}</li>
             </ul>
           </CourseCard>
 
